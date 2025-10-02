@@ -3,179 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>插畫與文字的宇宙</title>
-    <!-- 載入 Tailwind CSS -->
+    <title>軟體工程師個人連結首頁 | 自動化與量化交易</title>
+    <!-- 載入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 載入 Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- 載入 Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 載入 Lucide Icons (用於簡潔的圖標) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* 自訂樣式與動畫 */
-        body {
+        /* 使用 Inter 字體 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
             font-family: 'Inter', sans-serif;
         }
 
-        /* 背景漸變動畫 */
-        .gradient-background {
-            background: linear-gradient(-45deg, #1f2937, #374151, #111827, #374151);
+        /* 背景動畫：創造動態風格 */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0c4a6e, #14b8a6);
             background-size: 400% 400%;
-            animation: gradient-animation 15s ease infinite;
+            animation: gradient-shift 15s ease infinite;
         }
 
-        @keyframes gradient-animation {
+        @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* 卡片懸停效果 */
-        .card-hover:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* 按鈕懸停效果 */
-        .btn-hover:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-hover, .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Link 按鈕基礎樣式和響應式調整 */
+        .link-button {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
-        /* 複製提示訊息樣式 */
-        #copy-message {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 16px;
-            position: fixed;
-            z-index: 10;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-
-        #copy-message.show {
-            visibility: visible;
-            opacity: 1;
+        /* 替換 Lucide 圖標 */
+        .lucide {
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke-width: 2.5; /* 圖標線條稍微粗一點 */
         }
     </style>
 </head>
-<body class="gradient-background text-white flex items-center justify-center min-h-screen p-4">
+<body class="animated-gradient min-h-screen flex items-center justify-center p-4">
 
-    <!-- 主頁面容器 -->
-    <div class="w-full max-w-2xl bg-gray-800 bg-opacity-70 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl text-center border border-gray-700">
+    <!-- 主內容區塊 (RWD 適用) -->
+    <div class="w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 p-6 sm:p-8 rounded-2xl shadow-2xl space-y-6 text-center">
 
-        <!-- 個人資訊區 -->
-        <div class="flex flex-col items-center mb-10">
-            <!-- 大頭貼 Placeholder Image -->
-            <img src="https://placehold.co/150x150/1f2937/d1d5db?text=您的大頭貼" alt="個人大頭貼" class="rounded-full w-28 h-28 md:w-36 md:h-36 object-cover mb-6 border-4 border-white transform hover:scale-110 transition-transform duration-300">
-            <h1 class="text-3xl md:text-5xl font-bold mb-2">插畫與文字的宇宙</h1>
-            <p class="text-sm md:text-lg text-gray-300 max-w-prose">
-                一位熱愛創作的插畫家與故事書寫者。用畫筆描繪夢想，以文字建構世界。
-                我的作品是插畫與文字的交會，歡迎進入我的宇宙！
-            </p>
+        <!-- 專業頭像 (Placeholder) -->
+        <div class="mx-auto w-24 h-24 rounded-full bg-slate-700 border-4 border-cyan-400/50 flex items-center justify-center text-3xl font-bold text-white mb-4">
+            <!-- 建議放您的個人頭像圖片，例如：
+            <img src="您的頭像圖片URL" alt="個人頭像" class="w-full h-full object-cover rounded-full">
+            -->
+            SE
         </div>
 
-        <!-- 社交媒體連結區 -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-            <!-- GitHub 按鈕 -->
-            <a href="https://github.com/" target="_blank" class="card-hover bg-gray-700 hover:bg-gray-600 text-white rounded-xl p-4 flex items-center justify-center space-x-2">
-                <i class="fab fa-github fa-2x"></i>
-                <span class="font-semibold text-lg">GitHub</span>
-            </a>
-            <!-- Email 按鈕 -->
-            <button id="email-btn" class="card-hover bg-gray-700 hover:bg-gray-600 text-white rounded-xl p-4 flex items-center justify-center space-x-2">
-                <i class="fas fa-envelope fa-2x"></i>
-                <span class="font-semibold text-lg">Email</span>
-            </button>
-            <!-- LinkedIn 按鈕 -->
-            <a href="https://www.linkedin.com/" target="_blank" class="card-hover bg-gray-700 hover:bg-gray-600 text-white rounded-xl p-4 flex items-center justify-center space-x-2">
-                <i class="fab fa-linkedin fa-2x"></i>
-                <span class="font-semibold text-lg">LinkedIn</span>
-            </a>
-        </div>
+        <!-- 標題與簡介 -->
+        <h1 class="text-3xl font-extrabold text-white tracking-tight">
+            軟體工程師
+        </h1>
+        <p class="text-cyan-300 text-lg font-medium">
+            自動化與量化交易專家
+        </p>
+        <p class="text-slate-300 text-sm italic mt-2">
+            專注於高效能自動化解決方案與數據驅動的量化交易策略開發。
+        </p>
 
-        <!-- Linktree 樣式按鈕區 -->
-        <div class="flex flex-col space-y-4">
-            <h2 class="text-xl md:text-2xl font-bold mb-2 text-gray-200">我的作品集</h2>
-            <a href="https://www.instagram.com/your_instagram_id" target="_blank" class="btn-hover block w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-4 rounded-full shadow-lg">
-                <i class="fab fa-instagram mr-2"></i> 作品集 | Instagram
-            </a>
-            <a href="https://www.instagram.com/your_second_link" target="_blank" class="btn-hover block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-4 rounded-full shadow-lg">
-                我的最新插畫
-            </a>
-            <a href="https://www.instagram.com/your_third_link" target="_blank" class="btn-hover block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-4 rounded-full shadow-lg">
-                小說專題介紹
-            </a>
-            <!-- 可依需求新增更多連結 -->
-        </div>
+        <div class="h-px bg-white/20 my-6"></div>
 
+        <!-- 連結列表 (Linktree 核心功能) -->
+        <nav class="space-y-4">
+            <!-- GitHub 連結 -->
+            <a href="https://github.com/YourUsername" target="_blank" class="link-button flex items-center justify-between w-full px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-cyan-600 hover:shadow-cyan-400/50 hover:shadow-xl group">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="github" class="lucide text-cyan-400 group-hover:text-white"></i>
+                    <span class="font-semibold text-lg">程式碼庫 (GitHub)</span>
+                </div>
+                <i data-lucide="arrow-right" class="lucide opacity-70 group-hover:translate-x-1 group-hover:opacity-100"></i>
+            </a>
+
+            <!-- LinkedIn 連結 -->
+            <a href="https://linkedin.com/in/YourProfile" target="_blank" class="link-button flex items-center justify-between w-full px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-cyan-600 hover:shadow-cyan-400/50 hover:shadow-xl group">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="linkedin" class="lucide text-cyan-400 group-hover:text-white"></i>
+                    <span class="font-semibold text-lg">專業履歷 (LinkedIn)</span>
+                </div>
+                <i data-lucide="arrow-right" class="lucide opacity-70 group-hover:translate-x-1 group-hover:opacity-100"></i>
+            </a>
+
+            <!-- Email 連結 -->
+            <a href="mailto:your.email@example.com" class="link-button flex items-center justify-between w-full px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-cyan-600 hover:shadow-cyan-400/50 hover:shadow-xl group">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="mail" class="lucide text-cyan-400 group-hover:text-white"></i>
+                    <span class="font-semibold text-lg">聯絡我 (Email)</span>
+                </div>
+                <i data-lucide="arrow-right" class="lucide opacity-70 group-hover:translate-x-1 group-hover:opacity-100"></i>
+            </a>
+
+            <!-- Instagram/社交連結 (作為 Linktree 類似的社交入口) -->
+            <a href="https://instagram.com/YourHandle" target="_blank" class="link-button flex items-center justify-between w-full px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-cyan-600 hover:shadow-cyan-400/50 hover:shadow-xl group">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="instagram" class="lucide text-cyan-400 group-hover:text-white"></i>
+                    <span class="font-semibold text-lg">日常分享 (Instagram)</span>
+                </div>
+                <i data-lucide="arrow-right" class="lucide opacity-70 group-hover:translate-x-1 group-hover:opacity-100"></i>
+            </a>
+        </nav>
     </div>
 
-    <!-- 複製提示訊息 -->
-    <div id="copy-message" class="text-white">Email 已複製到剪貼簿！</div>
+    <!-- 腳註 -->
+    <div class="absolute bottom-4 left-0 right-0 text-center text-xs text-white/50">
+        &copy; 2025 Your Name. All Rights Reserved.
+    </div>
 
-    <!-- JavaScript 處理功能 -->
+    <!-- 載入 Lucide Icons (必需在頁面內容之後執行) -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Email 按鈕點擊事件
-            document.getElementById("email-btn").addEventListener("click", function() {
-                const emailAddress = "your-email@example.com"; // 請替換成您的電子郵件地址
-                const copyMessage = document.getElementById("copy-message");
-
-                // 嘗試使用現代的 Clipboard API
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(emailAddress).then(() => {
-                        console.log("Email address copied successfully!");
-                        showCopyMessage();
-                    }).catch(err => {
-                        console.error("Failed to copy using Clipboard API:", err);
-                        fallbackCopy(emailAddress);
-                    });
-                } else {
-                    // 舊版瀏覽器或環境的備用方法
-                    fallbackCopy(emailAddress);
-                }
+        lucide.createIcons();
+        
+        // 確保點擊按鈕時有觸覺反饋
+        document.querySelectorAll('.link-button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-[0.98]', 'ring-4', 'ring-cyan-500/50');
             });
-
-            // 備用複製功能
-            function fallbackCopy(text) {
-                const tempInput = document.createElement("input");
-                tempInput.value = text;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                try {
-                    document.execCommand("copy");
-                    console.log("Email address copied using fallback method!");
-                    showCopyMessage();
-                } catch (err) {
-                    console.error("Failed to copy using fallback method:", err);
-                }
-                document.body.removeChild(tempInput);
-            }
-
-            // 顯示複製提示訊息
-            function showCopyMessage() {
-                const copyMessage = document.getElementById("copy-message");
-                copyMessage.classList.add("show");
-                setTimeout(function(){
-                    copyMessage.classList.remove("show");
-                }, 3000);
-            }
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-[0.98]', 'ring-4', 'ring-cyan-500/50');
+            });
+            button.addEventListener('touchstart', () => {
+                button.classList.add('scale-[0.98]', 'ring-4', 'ring-cyan-500/50');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('scale-[0.98]', 'ring-4', 'ring-cyan-500/50');
+            });
         });
     </script>
-
 </body>
 </html>
-* WinGUp (for Notepad++) v5.3.3
